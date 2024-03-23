@@ -10,6 +10,7 @@ import { MountainAcsiiArt } from "./3dCanvas.constants";
 
 export default function TDCanvas() {
 	const [isWebGLSupported, setIsWebGLSupported] = useState(true);
+	const [isMobile, setIsMobile] = useState(false);
 	const [color,] = useState("FFFFFFF");
 
 	const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
@@ -23,9 +24,19 @@ export default function TDCanvas() {
 		setIsWebGLSupported(!!gl && b)
 	}, []);
 
+	useEffect(() => {
+		setIsMobile(window.innerWidth < 768);
+	}, []);
+
 	const defaultCameraPosition = new Vector3(0, 0, 5);
 	const defaultTarget = new Vector3(-0.19672038989012175, 0.34252186707017224, -0.19084934552398422);
 	const desiredDistance = 2.8130368240544836;
+
+	const mobileDefaultTarget = new Vector3(-0.19672038989012175, 1, -0.19084934552398422);
+	const mobileDesiredDistance = 5;
+
+	const defaultTargetPosition = isMobile ? mobileDefaultTarget : defaultTarget;
+	const desiredDistancePosition = isMobile ? mobileDesiredDistance : desiredDistance;
 
 
 	return (
@@ -51,9 +62,9 @@ export default function TDCanvas() {
 									enableRotate={false}
 									maxPolarAngle={Math.PI / 2}
 									minPolarAngle={Math.PI / 2}
-									minDistance={desiredDistance}
-									maxDistance={desiredDistance}
-									target={defaultTarget}
+									minDistance={desiredDistancePosition}
+									maxDistance={desiredDistancePosition}
+									target={defaultTargetPosition}
 									camera={cameraRef.current || undefined}
 								/>
 								<AsciiRenderer fgColor={color} bgColor="black" />
