@@ -1,0 +1,51 @@
+.home {
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+.info {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+}
+
+.info h1,
+.info .subtitle {
+	background-color: black;
+	padding: 5px;
+	margin: 0;
+}
+
+.canvas {
+	height: 100%;
+	width: 100%;
+}
+
+.subtitle {
+	color: white;
+	font-size: 1.3em;
+	font-weight: 500;
+}
+
+/* .nav {
+	display: flex;
+	flex-direction: column;
+}
+
+.navList {
+	list-style-position: inside;
+	padding-left: 0;
+}
+
+.navList>li {
+	background-color: black;
+	padding: 2px;
+	margin: 0;
+} */

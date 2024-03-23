@@ -1,0 +1,20 @@
+.title {
+	font-size: 3.2em;
+	font-weight: bold;
+}
+
+.aboutMe {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+.aboutMe>p {
+	font-size: clamp(1rem, 1vw, 2rem);
+	padding-left: 5%;
+	padding-right: 5%;
+}
