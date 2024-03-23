@@ -8,7 +8,7 @@ import { Person, WithContext } from "schema-dts";
 export const metadata: Metadata = {
   title: "Lucas Grasso Ramos",
   description: "Welcome to LucasGrasso's portfolio",
-  keywords: "Lucas Grasso, Lucas Grasso Ramos, portfolio, blockchain developer, web developer, software engineer, backend developer",
+  keywords: "Lucas Grasso, Lucas Grasso Ramos, Portfolio, CV, Blockchain developer",
   icons: [
     {
       rel: "icon",
