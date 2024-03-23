@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   ],
 };
 
-export const jsonLd: WithContext<Person> = {
+const jsonLd: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Lucas Grasso Ramos",
