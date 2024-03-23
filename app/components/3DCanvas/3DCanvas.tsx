@@ -10,7 +10,8 @@ import { MountainAcsiiArt } from "./3dCanvas.constants";
 
 export default function TDCanvas() {
 	const [isWebGLSupported, setIsWebGLSupported] = useState(true);
-	const [isMobile, setIsMobile] = useState(false);
+	const [desiredDistance, setDesiredDistance] = useState(0);
+	const [defaultTarget, setDefaultTarget] = useState(new Vector3(0, 0, 0));
 	const [color,] = useState("FFFFFFF");
 
 	const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
@@ -25,19 +26,31 @@ export default function TDCanvas() {
 	}, []);
 
 	useEffect(() => {
-		setIsMobile(window.innerWidth < 768);
+		const _defaultTarget = new Vector3(-0.19672038989012175, 0.34252186707017224, -0.19084934552398422);
+		const _desiredDistance = 2.8130368240544836;
+
+		const _mobileDefaultTarget = new Vector3(-0.19672038989012175, 1, -0.19084934552398422);
+		const _mobileDesiredDistance = 5;
+
+		const handleResize = () => {
+			const isMobile = window.innerWidth <= 768;
+			const defaultTarget_ = isMobile ? _mobileDefaultTarget : _defaultTarget;
+			const desiredDistance_ = isMobile ? _mobileDesiredDistance : _desiredDistance;
+			setDefaultTarget(defaultTarget_);
+			setDesiredDistance(desiredDistance_);
+		}
+
+		handleResize();
+
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		}
+
 	}, []);
 
 	const defaultCameraPosition = new Vector3(0, 0, 5);
-	const defaultTarget = new Vector3(-0.19672038989012175, 0.34252186707017224, -0.19084934552398422);
-	const desiredDistance = 2.8130368240544836;
-
-	const mobileDefaultTarget = new Vector3(-0.19672038989012175, 1, -0.19084934552398422);
-	const mobileDesiredDistance = 5;
-
-	const defaultTargetPosition = isMobile ? mobileDefaultTarget : defaultTarget;
-	const desiredDistancePosition = isMobile ? mobileDesiredDistance : desiredDistance;
-
 
 	return (
 		<>
@@ -62,9 +75,9 @@ export default function TDCanvas() {
 									enableRotate={false}
 									maxPolarAngle={Math.PI / 2}
 									minPolarAngle={Math.PI / 2}
-									minDistance={desiredDistancePosition}
-									maxDistance={desiredDistancePosition}
-									target={defaultTargetPosition}
+									minDistance={desiredDistance}
+									maxDistance={desiredDistance}
+									target={defaultTarget}
 									camera={cameraRef.current || undefined}
 								/>
 								<AsciiRenderer fgColor={color} bgColor="black" />
