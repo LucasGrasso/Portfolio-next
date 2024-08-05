@@ -3,3 +3,13 @@
 	flex-wrap: wrap;
 	gap: 2rem;
 }
+
+.color {
+	color: white
+}
+
+@media (prefers-color-scheme: light) {
+	.color {
+		fill: black;
+	}
+}

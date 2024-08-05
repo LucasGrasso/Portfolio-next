@@ -80,7 +80,7 @@ export default function TDCanvas() {
 									target={defaultTarget}
 									camera={cameraRef.current || undefined}
 								/>
-								<AsciiRenderer fgColor={color} bgColor="black" />
+								<AsciiRenderer fgColor={color} bgColor="transparent" />
 							</Canvas>
 						</div>
 					)
