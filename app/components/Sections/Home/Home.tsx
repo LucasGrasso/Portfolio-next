@@ -1,5 +1,7 @@
+import GithubIcon from "@/app/assets/icons/GithubIcon";
 import TDCanvas from "../../3DCanvas/3DCanvas"
 import styles from './Home.module.css';
+import LinkedInIcon from "@/app/assets/icons/LinkedInIcon";
 
 
 export default function Home() {
@@ -17,6 +19,10 @@ export default function Home() {
 					<span className={styles.subtitle}>
 						Blockchain & Full-stack Dev.
 					</span>
+					<div className={styles.icons}>
+						<GithubIcon />
+						<LinkedInIcon />
+					</div>
 				</div>
 			</div >
 		</>

@@ -14,7 +14,7 @@ export default function AboutMe() {
 			</p>
 			<p>
 				I have experience working in the blockchain and software development industry, and I&lsquo;m currently working as a blockchain & backend developer.<br />
-				I am also pursuing a degree in Data Science at the University of Buenos Aires.
+				I am also pursuing a degree in Computer and Data Science at the University of Buenos Aires.
 			</p>
 			<Figures />
 		</div>

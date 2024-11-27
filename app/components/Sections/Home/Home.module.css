@@ -34,6 +34,14 @@
 	font-weight: 500;
 }
 
+.icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	margin-left: 1.5%;
+}
+
 @media (prefers-color-scheme: light) {
 	.info,.subtitle {
 		color: black;
@@ -44,6 +52,27 @@
 		background-color: #ededed;
 		padding: 5px;
 		margin: 0;
+	}
+
+	.icons {
+		fill: black;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.info,.subtitle {
+		color: white;
+	}
+
+	.info h1,
+	.info .subtitle {
+		background-color: black;
+		padding: 5px;
+		margin: 0;
+	}
+
+	.icons {
+		fill: white;
 	}
 }
 

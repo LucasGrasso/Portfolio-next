@@ -6,3 +6,9 @@
 		fill: black;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	.color {
+		fill: white;
+	}
+}
