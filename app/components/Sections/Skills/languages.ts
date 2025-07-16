@@ -15,6 +15,11 @@ const languages: Record<string, string>[] = [
     language: "solidity",
   },
   {
+    name: "Rust",
+    text: 'println!("Hello, World!");',
+    language: "rust",
+  },
+  {
     name: "HTML",
     text: "<h1>Hello, World!</h1>",
     language: "html",
