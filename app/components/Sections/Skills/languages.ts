@@ -1,12 +1,12 @@
 const languages: Record<string, string>[] = [
   {
     name: "Python",
-    text: "print('Hello, World!')",
+    text: "print('Hello world!')",
     language: "python",
   },
   {
     name: "TypeScript",
-    text: "console.log('Hello, World!')",
+    text: "console.log('Hello world!')",
     language: "typescript",
   },
   {
@@ -16,12 +16,12 @@ const languages: Record<string, string>[] = [
   },
   {
     name: "Rust",
-    text: 'println!("Hello, World!");',
+    text: 'println!("Hello world!");',
     language: "rust",
   },
   {
     name: "HTML",
-    text: "<h1>Hello, World!</h1>",
+    text: "<h1> Hello world! </h1>",
     language: "html",
   },
   {
@@ -36,27 +36,27 @@ const languages: Record<string, string>[] = [
   },
   {
     name: "Git",
-    text: "git commit -m 'Hello, World!'",
+    text: "git commit -m 'Hello world!'",
     language: "git",
   },
   {
     name: "C++",
-    text: "std::cout << 'Hello, World!' << std::endl;",
+    text: "std::cout << 'Hello world!' << std::endl;",
     language: "cpp",
   },
   {
     name: "Css",
-    text: "h1::before { content: 'Hello, World!'; }",
+    text: "h1::before { content: 'Hello world!'; }",
     language: "css",
   },
   {
     name: "Latex",
-    text: "\\Large{Hello, World!}",
+    text: "\\Large{Hello world!}",
     language: "latex",
   },
   {
     name: "Prolog",
-    text: "greet :- write(Hello, World!).",
+    text: "?- print(HELLO_WORLD).",
     language: "prolog",
   },
   {

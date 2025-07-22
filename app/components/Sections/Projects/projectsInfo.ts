@@ -33,13 +33,13 @@ const projects: Project[] = [
     url: "https://github.com/ZertiApp",
     tags: ["Blockchain", "Solidity", "Typescript", "React"],
   },
-  {
+  /* {
     title: "CMD Portfolio",
     description:
       "A powershell-like portfolio website built with React and Typescript.",
     url: "https://cmd.lucasgrasso.com.ar",
     tags: ["Frontend", "React"],
-  },
+  }, */
   {
     title: "GHG Emissions in Argentina",
     description:
