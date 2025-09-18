@@ -17,7 +17,7 @@ const toolboxItems = [
   },
   {
     name: "Rust",
-    category: "Backend",
+    category: "BackEnd",
   },
   {
     name: "Sanic",
@@ -89,6 +89,18 @@ const toolboxItems = [
   },
   {
     name: "Wagmi",
+    category: "Blockchain",
+  },
+  {
+    name: "Substrate",
+    category: "Blockchain",
+  },
+  {
+    name: "Frame",
+    category: "Blockchain",
+  },
+  {
+    name: "Ink!",
     category: "Blockchain",
   },
   {

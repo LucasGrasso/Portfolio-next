@@ -83,8 +83,9 @@ export default function Skills() {
 				</h2>
 				<ul className={styles.list}>
 					<li>Solidity</li>
-					<li>Python</li>
 					<li>Typescript</li>
+					<li>Rust</li>
+					<li>Python</li>
 				</ul>
 			</div>
 			<Toolbox />

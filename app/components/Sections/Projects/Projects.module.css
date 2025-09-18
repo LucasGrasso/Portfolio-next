@@ -46,9 +46,8 @@
 	gap: 1rem;
 }
 
-.project:last-child {
-	grid-column: 1/ span 2;
-
+.project:last-child:nth-child(odd) {
+	grid-column: 1 / span 2;
 }
 
 @media (prefers-color-scheme: light) {

@@ -33,13 +33,6 @@ const projects: Project[] = [
     url: "https://github.com/ZertiApp",
     tags: ["Blockchain", "Solidity", "Typescript", "React"],
   },
-  /* {
-    title: "CMD Portfolio",
-    description:
-      "A powershell-like portfolio website built with React and Typescript.",
-    url: "https://cmd.lucasgrasso.com.ar",
-    tags: ["Frontend", "React"],
-  }, */
   {
     title: "GHG Emissions in Argentina",
     description:
@@ -47,13 +40,13 @@ const projects: Project[] = [
     url: "https://github.com/LucasGrasso/ContarConDatos2022-GEI_Argentina",
     tags: ["Data", "Python"],
   },
-  /* {
-    title: "EliminarRtasDeParciales",
+  {
+    title: "flash loans - Ink!",
     description:
-      "An app to remove answers from a PDF file, made in fastAPI and React.",
-    url: "https://borraryestudiar.lucasgrasso.com.ar/",
-    tags: ["Frontend", "Backend", "Typescript", "React", "Python"],
-  }, */
+      "An implementation of the ERC-3156 standard for flash loans using the Ink! programming language.",
+    url: "https://github.com/jbtwist/flash_loans_dot",
+    tags: ["Blockchain", "Ink!", "Rust"],
+  },
 ];
 
 const tags = projects.reduce((acc, project) => {
