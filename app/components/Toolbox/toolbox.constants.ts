@@ -72,6 +72,10 @@ const toolboxItems = [
     category: "Blockchain",
   },
   {
+    name: "Rust",
+    category: "Blockchain",
+  },
+  {
     name: "Web3.js",
     category: "Blockchain",
   },
