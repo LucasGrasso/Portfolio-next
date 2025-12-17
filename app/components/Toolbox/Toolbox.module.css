@@ -20,6 +20,15 @@
 	border-radius: 5px;
 	padding: 8px;
 	margin: 5px;
+	transition: transform 0.3s ease-in-out;
+}
+
+.tool:hover {
+	/* Scales the element to 150% of its original size */
+	transform: scale(1.1);
+	/* Alternatively, use the newer 'scale' property: scale: 1.5; */
+	cursor: pointer;
+	/* Changes the cursor to a hand pointer */
 }
 
 .toolboxLegend {
@@ -37,6 +46,15 @@
 	align-items: center;
 	justify-content: center;
 	gap: 0.2rem;
+	transition: transform 0.3s ease-in-out;
+}
+
+.legendItem:hover {
+	/* Scales the element to 150% of its original size */
+	transform: scale(1.1);
+	/* Alternatively, use the newer 'scale' property: scale: 1.5; */
+	cursor: pointer;
+	/* Changes the cursor to a hand pointer */
 }
 
 .rectangle {
