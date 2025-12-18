@@ -41,11 +41,10 @@ const projects: Project[] = [
     tags: ["Data", "Python"],
   },
   {
-    title: "flash loans - Ink!",
-    description:
-      "An implementation of the ERC-3156 standard for flash loans using the Ink! programming language.",
-    url: "https://github.com/jbtwist/flash_loans_dot",
-    tags: ["Blockchain", "Ink!", "Rust"],
+    title: "Solidity Scale Codec",
+    description: "An implementation of SCALE codec in Solidity.",
+    url: "https://www.npmjs.com/package/solidity-scale-codec",
+    tags: ["Blockchain", "Solidity", "Polkadot"],
   },
 ];
 
