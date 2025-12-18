@@ -24,37 +24,40 @@ export default function Toolbox() {
 		return () => document.removeEventListener('mousedown', handleClickOutside);
 	}, []);
 
-	const getStaggerIndex = (item: ToolboxItem): number => {
-		if (!selectedCategory) return 0;
-		const isSelected = item.category === selectedCategory;
-		const group = shuffledToolboxItems.filter(i =>
-			isSelected ? i.category === selectedCategory : i.category !== selectedCategory
-		);
-		return group.indexOf(item);
-	};
+	const selectedItems = selectedCategory
+		? shuffledToolboxItems.filter(item => item.category === selectedCategory)
+		: [];
+
+	const unselectedItems = selectedCategory
+		? shuffledToolboxItems.filter(item => item.category !== selectedCategory)
+		: shuffledToolboxItems;
 
 	return (
 		<div className={styles.toolboxWrapper} ref={wrapperRef}>
 			<h2>And I&lsquo;m handy with:</h2>
 
 			<LayoutGroup>
-				{/* Selected section */}
-				<div className={styles.selectedSection}>
-					<motion.div className={styles.selectedToolbox}>
-						{shuffledToolboxItems
-							.filter(item => item.category === selectedCategory)
-							.map((item) => {
-								const staggerIndex = getStaggerIndex(item);
-								return (
+				{/* Selected section - solo renderiza si hay items */}
+				<div className={styles.selectedSection} style={{ height: selectedItems.length > 0 ? 80 : undefined }}>
+					{selectedItems.length > 0 && (
+						<>
+							<motion.div
+								className={styles.toolbox}
+								layout
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ duration: 0.2 }}
+							>
+								{selectedItems.map((item, index) => (
 									<motion.div
-										key={item.name}
-										layoutId={item.name}
+										key={item.name + item.category}
+										layoutId={item.name + item.category}
 										transition={{
 											layout: {
 												type: 'spring',
-												stiffness: 400,
-												damping: 30,
-												delay: staggerIndex * 0.04,
+												stiffness: 500,
+												damping: 35,
+												delay: index * 0.03,
 											},
 										}}
 										className={styles.tool}
@@ -64,43 +67,38 @@ export default function Toolbox() {
 									>
 										<span>{item.name}</span>
 									</motion.div>
-								);
-							})}
-					</motion.div>
-
-					{selectedCategory && <div className={styles.divider} />}
+								))}
+							</motion.div>
+							<div className={styles.divider} />
+						</>
+					)}
 				</div>
 
 				{/* Unselected section */}
-				<motion.div className={styles.toolbox}>
-					{shuffledToolboxItems
-						.filter(item => selectedCategory ? item.category !== selectedCategory : true)
-						.map((item) => {
-							const staggerIndex = getStaggerIndex(item);
-							return (
-								<motion.div
-									key={item.name}
-									layoutId={item.name}
-									transition={{
-										layout: {
-											type: 'spring',
-											stiffness: 400,
-											damping: 30,
-											delay: staggerIndex * 0.04,
-										},
-									}}
-									animate={{
-										opacity: selectedCategory ? 0.5 : 1,
-									}}
-									className={styles.tool}
-									style={{ '--color': randomColourPerCategory(item.category) } as React.CSSProperties}
-									onClick={() => setSelectedCategory(item.category)}
-									whileHover={{ scale: 1.1 }}
-								>
-									<span>{item.name}</span>
-								</motion.div>
-							);
-						})}
+				<motion.div className={styles.toolbox} layout>
+					{unselectedItems.length > 0 && (unselectedItems.map((item, index) => (
+						<motion.div
+							key={item.name + item.category}
+							layoutId={item.name + item.category}
+							transition={{
+								layout: {
+									type: 'spring',
+									stiffness: 500,
+									damping: 35,
+									delay: index * 0.03,
+								},
+							}}
+							animate={{
+								opacity: selectedCategory ? 0.5 : 1,
+							}}
+							className={styles.tool}
+							style={{ '--color': randomColourPerCategory(item.category) } as React.CSSProperties}
+							onClick={() => setSelectedCategory(item.category)}
+							whileHover={{ scale: 1.1 }}
+						>
+							<span>{item.name}</span>
+						</motion.div>
+					)))}
 				</motion.div>
 			</LayoutGroup>
 
