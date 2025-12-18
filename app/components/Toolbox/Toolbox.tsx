@@ -87,7 +87,7 @@ export default function Toolbox() {
 
 			<LayoutGroup>
 				{/* Selected section */}
-				<div className={styles.selectedSection} style={{ height: selectedItems.length > 0 ? 80 : undefined }}>
+				<div className={styles.selectedSection}>
 					{selectedItems.length > 0 && (
 						<>
 							<motion.div
