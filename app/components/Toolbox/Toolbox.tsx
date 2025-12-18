@@ -7,11 +7,20 @@ import { randomColourPerCategory, mainColourOfCategory, shuffle } from '@/app/ut
 
 export default function Toolbox() {
 	const [shuffledToolboxItems, setShuffledToolboxItems] = useState<ToolboxItem[]>([]);
+	const [colorMap, setColorMap] = useState<Record<string, string>>({});
 	const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 	const wrapperRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		setShuffledToolboxItems(shuffle(toolboxItems));
+	}, []);
+
+	useEffect(() => {
+		let temp: Record<string, string> = {};
+		toolboxItems.map(item => {
+			temp[item.name + item.category] = randomColourPerCategory(item.category);
+		});
+		setColorMap(temp);
 	}, []);
 
 	useEffect(() => {
@@ -38,6 +47,40 @@ export default function Toolbox() {
 		);
 	}, [shuffledToolboxItems, selectedCategory]);
 
+	const ToolItem = React.memo(function ToolItem({
+		item,
+		index,
+		dimmed,
+		onClick,
+	}: {
+		item: ToolboxItem;
+		index: number;
+		dimmed: boolean;
+		onClick: () => void;
+	}) {
+		return (
+			<motion.div
+				layoutId={item.name + item.category}
+				className={styles.tool}
+				animate={{ opacity: dimmed ? 0.5 : 1 }}
+				whileHover={{ scale: 1.1 }}
+				transition={{
+					layout: {
+						type: 'spring',
+						stiffness: 500,
+						damping: 35,
+						delay: index * 0.005,
+					},
+				}}
+				style={{ '--color': colorMap[item.name + item.category] } as React.CSSProperties}
+				onClick={onClick}
+			>
+				<span>{item.name}</span>
+			</motion.div>
+		);
+	});
+
+
 	return (
 		<div className={styles.toolboxWrapper} ref={wrapperRef}>
 			<h2>And I&lsquo;m handy with:</h2>
@@ -55,24 +98,13 @@ export default function Toolbox() {
 								transition={{ duration: 0.2 }}
 							>
 								{selectedItems.map((item, index) => (
-									<motion.div
+									<ToolItem
 										key={item.name + item.category}
-										layoutId={item.name + item.category}
-										transition={{
-											layout: {
-												type: 'spring',
-												stiffness: 500,
-												damping: 35,
-												delay: index * 0.03,
-											},
-										}}
-										className={styles.tool}
-										style={{ '--color': randomColourPerCategory(item.category) } as React.CSSProperties}
+										index={index}
+										item={item}
+										dimmed={false}
 										onClick={() => setSelectedCategory(item.category)}
-										whileHover={{ scale: 1.1 }}
-									>
-										<span>{item.name}</span>
-									</motion.div>
+									/>
 								))}
 							</motion.div>
 							<div className={styles.divider} />
@@ -83,27 +115,13 @@ export default function Toolbox() {
 				{/* Unselected section */}
 				<motion.div className={styles.toolbox} layout>
 					{unselectedItems.length > 0 && (unselectedItems.map((item, index) => (
-						<motion.div
+						<ToolItem
 							key={item.name + item.category}
-							layoutId={item.name + item.category}
-							transition={{
-								layout: {
-									type: 'spring',
-									stiffness: 500,
-									damping: 35,
-									delay: index * 0.03,
-								},
-							}}
-							animate={{
-								opacity: selectedCategory ? 0.5 : 1,
-							}}
-							className={styles.tool}
-							style={{ '--color': randomColourPerCategory(item.category) } as React.CSSProperties}
+							index={index}
+							item={item}
+							dimmed={!!selectedCategory}
 							onClick={() => setSelectedCategory(item.category)}
-							whileHover={{ scale: 1.1 }}
-						>
-							<span>{item.name}</span>
-						</motion.div>
+						/>
 					)))}
 				</motion.div>
 			</LayoutGroup>
