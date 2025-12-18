@@ -4,7 +4,15 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	gap: 1.5rem;
+	gap: 1rem;
+}
+
+.selectedSection {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	transition: min-height 0.3s ease-out;
 }
 
 .toolbox {
@@ -13,13 +21,21 @@
 	width: 80%;
 	font-family: 'Inconsolata', monospace;
 	justify-content: center;
+	gap: 10px;
 }
 
 .tool {
 	background-color: var(--color);
 	border-radius: 5px;
 	padding: 8px;
-	margin: 5px;
+	cursor: pointer;
+}
+
+.divider {
+	width: 50%;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.2);
+	margin-top: 1rem;
 }
 
 .toolboxLegend {
@@ -29,6 +45,7 @@
 	justify-content: center;
 	text-align: center;
 	gap: 1rem;
+	margin-top: 0.5rem;
 }
 
 .legendItem {
@@ -37,15 +54,14 @@
 	align-items: center;
 	justify-content: center;
 	gap: 0.2rem;
+	cursor: pointer;
 }
 
 .rectangle {
 	background-color: var(--color);
 	border-radius: 5px;
-	padding: 8px;
 	width: 35px;
-	height: 1px;
-	margin: 5px;
+	height: 16px;
 }
 
 @media (max-width: 880px) {

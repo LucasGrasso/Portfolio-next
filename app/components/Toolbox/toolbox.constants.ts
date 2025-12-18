@@ -1,4 +1,10 @@
-const toolboxItems = [
+type Category = "BackEnd" | "FrontEnd" | "Blockchain" | "Python";
+type ToolboxItem = {
+  name: string;
+  category: Category;
+};
+
+const toolboxItems: ToolboxItem[] = [
   {
     name: "TypeScript",
     category: "BackEnd",
@@ -145,11 +151,6 @@ const toolboxItems = [
   },
 ];
 
-type ToolboxItem = {
-  name: string;
-  category: string;
-};
-
 const toolboxItemsPerCategory = toolboxItems.reduce(
   (acc: Record<string, string[]>, item) => {
     if (!acc[item.category]) {
@@ -158,9 +159,15 @@ const toolboxItemsPerCategory = toolboxItems.reduce(
     acc[item.category].push(item.name);
     return acc;
   },
-  {} as Record<string, string[]>
+  {} as Record<Category, string[]>
 ); // Update the type of the accumulator
 
-const categories = Object.keys(toolboxItemsPerCategory);
+const categories = Object.keys(toolboxItemsPerCategory) as Category[];
 
-export { type ToolboxItem, toolboxItems, toolboxItemsPerCategory, categories };
+export {
+  type ToolboxItem,
+  type Category,
+  toolboxItems,
+  toolboxItemsPerCategory,
+  categories,
+};
