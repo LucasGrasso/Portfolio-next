@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, LayoutGroup } from 'framer-motion';
 import styles from './Toolbox.module.css';
 import { toolboxItems, categories, ToolboxItem, Category } from './toolbox.constants';
@@ -24,20 +24,26 @@ export default function Toolbox() {
 		return () => document.removeEventListener('mousedown', handleClickOutside);
 	}, []);
 
-	const selectedItems = selectedCategory
-		? shuffledToolboxItems.filter(item => item.category === selectedCategory)
-		: [];
+	const selectedItems = useMemo(() => {
+		if (!selectedCategory) return [];
+		return shuffledToolboxItems.filter(
+			item => item.category === selectedCategory
+		);
+	}, [shuffledToolboxItems, selectedCategory]);
 
-	const unselectedItems = selectedCategory
-		? shuffledToolboxItems.filter(item => item.category !== selectedCategory)
-		: shuffledToolboxItems;
+	const unselectedItems = useMemo(() => {
+		if (!selectedCategory) return shuffledToolboxItems;
+		return shuffledToolboxItems.filter(
+			item => item.category !== selectedCategory
+		);
+	}, [shuffledToolboxItems, selectedCategory]);
 
 	return (
 		<div className={styles.toolboxWrapper} ref={wrapperRef}>
 			<h2>And I&lsquo;m handy with:</h2>
 
 			<LayoutGroup>
-				{/* Selected section - solo renderiza si hay items */}
+				{/* Selected section */}
 				<div className={styles.selectedSection} style={{ height: selectedItems.length > 0 ? 80 : undefined }}>
 					{selectedItems.length > 0 && (
 						<>
