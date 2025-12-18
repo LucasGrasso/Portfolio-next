@@ -108,8 +108,12 @@ export default function Toolbox() {
 						key={category}
 						className={styles.legendItem}
 						onClick={() => setSelectedCategory(category)}
-						animate={{ scale: selectedCategory === category ? 1.1 : 1 }}
+						animate={{ scale: selectedCategory === category ? 1.1 : 1, opacity: selectedCategory && selectedCategory !== category ? 0.5 : 1 }}
 						whileHover={{ scale: 1.1 }}
+						transition={{
+							opacity: { duration: 0.25, ease: 'easeOut' },
+							scale: { duration: 0.2, ease: 'easeOut' },
+						}}
 					>
 						<div
 							className={styles.rectangle}
