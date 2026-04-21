@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inconsolata&display=swap');
 
 * {
   box-sizing: border-box;
@@ -10,6 +10,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --cursor-contrast-bg: #000000;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -34,6 +35,13 @@ body {
   width: 100vw;
   margin: 0;
   overflow-x: hidden;
+}
+
+@media (min-width: 769px) {
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
 }
 
 .App {
@@ -102,6 +110,7 @@ button:focus-visible {
   :root {
     color: black;
     background-color: #ededed;
+    --cursor-contrast-bg: #ededed;
   }
 
   a:hover {

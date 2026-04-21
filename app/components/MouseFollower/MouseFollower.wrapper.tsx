@@ -10,6 +10,18 @@ export default function MouseFollowerWrapper() {
 		setIsNotMobile(window.innerWidth > 768);
 	}, []);
 
+	useEffect(() => {
+		if (!isNotMobile) {
+			return;
+		}
+
+		document.body.classList.add('custom-cursor-active');
+
+		return () => {
+			document.body.classList.remove('custom-cursor-active');
+		};
+	}, [isNotMobile]);
+
 	return (
 		<>
 			{isNotMobile && <MouseFollower />}
