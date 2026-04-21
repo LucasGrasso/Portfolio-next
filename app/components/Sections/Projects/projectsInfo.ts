@@ -7,11 +7,10 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "ERC-5516",
-    description:
-      "An interface for non-transferrable, Multi-owned NFTs binding to Ethereum accounts.",
-    url: "https://eips.ethereum.org/EIPS/eip-5516",
-    tags: ["Blockchain", "Solidity"],
+    title: "Solidity Scale Codec",
+    description: "An implementation of SCALE codec in Solidity.",
+    url: "https://www.npmjs.com/package/solidity-scale-codec",
+    tags: ["Blockchain", "Solidity", "Polkadot"],
   },
   {
     title: "GIC",
@@ -19,6 +18,13 @@ const projects: Project[] = [
       "A First Order Logic based Progamming language + SLD resolution engine.",
     url: "https://github.com/LucasGrasso/gic",
     tags: ["Rust", "Logic Programming", "Interpreters"],
+  },
+  {
+    title: "ERC-5516",
+    description:
+      "An interface for non-transferrable, Multi-owned NFTs binding to Ethereum accounts.",
+    url: "https://eips.ethereum.org/EIPS/eip-5516",
+    tags: ["Blockchain", "Solidity"],
   },
   {
     title: "Beaconchain utils",
@@ -39,12 +45,6 @@ const projects: Project[] = [
       'My entry for the "Contar con Datos 2022" data visualization contest. It analyzes and visualizes greenhouse gas emissions in Argentina from agriculture and livestock.',
     url: "https://github.com/LucasGrasso/ContarConDatos2022-GEI_Argentina",
     tags: ["Data", "Python"],
-  },
-  {
-    title: "Solidity Scale Codec",
-    description: "An implementation of SCALE codec in Solidity.",
-    url: "https://www.npmjs.com/package/solidity-scale-codec",
-    tags: ["Blockchain", "Solidity", "Polkadot"],
   },
 ];
 
