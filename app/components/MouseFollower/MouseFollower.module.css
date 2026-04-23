@@ -38,6 +38,13 @@
 	font-size: 1.7rem;
 }
 
+.text {
+	font-size: 2.35rem;
+	font-weight: 500;
+	transform: translate(-50%, -50%) scale(0.4);
+	letter-spacing: -0.08em;
+}
+
 .charSwap {
 	animation: glyphSwap 140ms ease-out;
 }

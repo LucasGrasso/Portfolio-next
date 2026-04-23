@@ -13,6 +13,7 @@ const MouseFollower = () => {
 		let frameId = 0;
 		let swapTimeout = 0;
 		const interactiveSelector = 'a, button, [role="button"], input, textarea, select, label, [data-cursor="interactive"]';
+		const textSelector = 'input, textarea, [contenteditable="true"], [contenteditable="plaintext-only"], p, span, h1, h2, h3, h4, h5, h6, li, td, th, small, strong, em, label, figcaption, blockquote, code, pre';
 
 		const isInteractiveTarget = (target: EventTarget | null) => {
 			let element = target as HTMLElement | null;
@@ -23,6 +24,28 @@ const MouseFollower = () => {
 				}
 
 				if (window.getComputedStyle(element).cursor === 'pointer') {
+					return true;
+				}
+
+				element = element.parentElement;
+			}
+
+			return false;
+		};
+
+		const isTextTarget = (target: EventTarget | null) => {
+			let element = target as HTMLElement | null;
+
+			while (element && element !== document.body) {
+				if (element.matches(interactiveSelector)) {
+					return false;
+				}
+
+				if (element.matches(textSelector)) {
+					return true;
+				}
+
+				if (window.getComputedStyle(element).cursor === 'text') {
 					return true;
 				}
 
@@ -44,9 +67,11 @@ const MouseFollower = () => {
 			glyphRef.current.style.top = `${targetY}px`;
 
 			const isInteractive = isInteractiveTarget(e.target);
-			const nextChar = isInteractive ? '*' : '.';
+			const isText = isTextTarget(e.target);
+			const nextChar = isInteractive ? 'x' : isText ? '|' : '.';
 
 			glyphRef.current.classList.toggle(styles.interactive, isInteractive);
+			glyphRef.current.classList.toggle(styles.text, isText && !isInteractive);
 
 			if (glyphRef.current.textContent !== nextChar) {
 				glyphRef.current.textContent = nextChar;

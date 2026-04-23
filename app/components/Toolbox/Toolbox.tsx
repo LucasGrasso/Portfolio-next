@@ -62,6 +62,7 @@ export default function Toolbox() {
 			<motion.div
 				layoutId={item.name + item.category}
 				className={styles.tool}
+				data-cursor="interactive"
 				animate={{ opacity: dimmed ? 0.5 : 1 }}
 				whileHover={{ scale: 1.1 }}
 				transition={{
@@ -131,6 +132,7 @@ export default function Toolbox() {
 					<motion.div
 						key={category}
 						className={styles.legendItem}
+						data-cursor="interactive"
 						onClick={() => setSelectedCategory(category)}
 						animate={{ scale: selectedCategory === category ? 1.1 : 1, opacity: selectedCategory && selectedCategory !== category ? 0.5 : 1 }}
 						whileHover={{ scale: 1.1 }}
