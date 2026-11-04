@@ -27,10 +27,11 @@ const projects: Project[] = [
     tags: ["Blockchain", "Solidity"],
   },
   {
-    title: "Beaconchain utils",
-    description: "Typescript utilities for working with the Eth2 Beacon Chain.",
-    url: "https://www.npmjs.com/package/@decentstake/beaconchain-utils",
-    tags: ["Blockchain", "Typescript"],
+    title: "AITNODE",
+    description:
+      "Adaptive Integration Time for Neural ODEs, learning how much computation each input needs.",
+    url: "https://ait.lucasgrasso.com.ar/",
+    tags: ["Machine Learning", "Neural ODEs", "Python"],
   },
   {
     title: "Zerti",
