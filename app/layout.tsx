@@ -8,6 +8,33 @@ import { Person, WithContext } from "schema-dts";
 export const metadata: Metadata = {
   title: "Lucas Grasso Ramos",
   description: "Welcome to LucasGrasso's portfolio",
+  openGraph: {
+    title: "Lucas Grasso Ramos",
+    description: "Welcome to LucasGrasso's portfolio",
+    url: "https://lucasgrasso.com.ar/",
+    locale: "en_US",
+    type: "profile",
+    images: [
+      {
+        url: "https://lucasgrasso.com.ar/og-hero.png",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Lucas Grasso Ramos — Blockchain & Full-stack Dev. — ASCII mountain hero",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lucas Grasso Ramos",
+    description: "Welcome to LucasGrasso's portfolio",
+    images: [
+      {
+        url: "https://lucasgrasso.com.ar/og-hero.png",
+        alt: "Lucas Grasso Ramos — Blockchain & Full-stack Dev. — ASCII mountain hero",
+      },
+    ],
+  },
   keywords: "Lucas Grasso, Lucas Grasso Ramos, Portfolio, CV, Blockchain developer",
   icons: [
     {
@@ -50,11 +77,6 @@ export default function RootLayout({
           }}
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <meta name="og:url" content="https://lucasgrasso.com.ar/" />
-        <meta name="og:title" content="Lucas Grasso Ramos" />
-        <meta name="og:description" content="Welcome to LucasGrasso's portfolio" />
-        <meta name="og:locale" content="en_US" />
-        <meta name="og:type" content="profile" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>{children}</body>
