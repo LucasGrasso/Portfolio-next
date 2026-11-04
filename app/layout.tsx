@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     type: "profile",
     images: [
       {
-        url: "https://lucasgrasso.com.ar/og-hero.png",
+        url: "https://lucasgrasso.com.ar/og-favicon.png",
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Lucas Grasso Ramos — Blockchain & Full-stack Dev. — ASCII mountain hero",
+        alt: "Lucas Grasso Ramos — Blockchain & Full-stack Dev. — mountain logo",
       },
     ],
   },
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     description: "Welcome to LucasGrasso's portfolio",
     images: [
       {
-        url: "https://lucasgrasso.com.ar/og-hero.png",
-        alt: "Lucas Grasso Ramos — Blockchain & Full-stack Dev. — ASCII mountain hero",
+        url: "https://lucasgrasso.com.ar/og-favicon.png",
+        alt: "Lucas Grasso Ramos — Blockchain & Full-stack Dev. — mountain logo",
       },
     ],
   },
